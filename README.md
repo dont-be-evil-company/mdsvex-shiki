@@ -18,19 +18,19 @@ Using your package manager of choice, run:
 
 ```bash
 # npm
-npm install @mistweaverco/mdsvex-shiki@v1.4.0
+npm install @dont-be-evil-company/mdsvex-shiki@v1.4.0
 
 # yarn
-yarn add @mistweaverco/mdsvex-shiki@v1.4.0
+yarn add @dont-be-evil-company/mdsvex-shiki@v1.4.0
 
 # bun
-bun add @mistweaverco/mdsvex-shiki@v1.4.0
+bun add @dont-be-evil-company/mdsvex-shiki@v1.4.0
 
 # pnpm
-pnpm add @mistweaverco/mdsvex-shiki@v1.4.0
+pnpm add @dont-be-evil-company/mdsvex-shiki@v1.4.0
 
 # deno
-deno add npm:@mistweaverco/mdsvex-shiki@v1.4.0
+deno add npm:@dont-be-evil-company/mdsvex-shiki@v1.4.0
 ```
 
 > [!WARNING]
@@ -86,7 +86,7 @@ Probably in the root layout or HTML file that wraps your markdown content.
 (e.g., `src/routes/blog/+layout.svelte` or `src/app.html`)
 
 ```js
-import '@mistweaverco/mdsvex-shiki/styles.css';
+import '@dont-be-evil-company/mdsvex-shiki/styles.css';
 ```
 
 Now, you can use the bar features in your code blocks.
@@ -101,7 +101,7 @@ In your layout file (e.g., `src/routes/blog/+layout.svelte`):
 
 ```svelte
 <script>
-  import { copyAction } from '@mistweaverco/mdsvex-shiki/copyAction';
+  import { copyAction } from '@dont-be-evil-company/mdsvex-shiki/copyAction';
 </script>
 
 <div use:copyAction>
@@ -113,7 +113,7 @@ Or if you're rendering markdown content directly:
 
 ```svelte
 <script>
-  import { copyAction } from '@mistweaverco/mdsvex-shiki/copyAction';
+  import { copyAction } from '@dont-be-evil-company/mdsvex-shiki/copyAction';
 </script>
 
 <div use:copyAction>
@@ -135,7 +135,7 @@ For example after a single
 
 ```svelte
 <script>
-  import { getMdsvexShikiHighlighter, highlightForSvelte } from '@mistweaverco/mdsvex-shiki';
+  import { getMdsvexShikiHighlighter, highlightForSvelte } from '@dont-be-evil-company/mdsvex-shiki';
 
   const hl = await getMdsvexShikiHighlighter({ /* … */ });
   const code = 'const x = 1;';

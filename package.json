@@ -1,6 +1,6 @@
 {
-  "name": "@mistweaverco/mdsvex-shiki",
-  "version": "1.4.1",
+  "name": "@dont-be-evil-company/mdsvex-shiki",
+  "version": "1.5.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -23,7 +23,7 @@
     "styles.css"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "bun test",
     "prepublishOnly": "bun run build",
     "clear": "rm -f *.js *.cjs *.d.ts",
     "build": "bun build.ts",
@@ -41,7 +41,7 @@
     "sveltekit",
     "syntax"
   ],
-  "author": "mistweaverco and friends <open-source@mistweaverco.com>",
+  "author": "The Don't Be Evil Company and friends <osse@the-dont-be-evil-company.com>",
   "license": "MIT",
   "description": "Shiki syntax highlighter for mdsvex",
   "private": false,

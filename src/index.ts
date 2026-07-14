@@ -170,7 +170,7 @@ export const getMdsvexShikiHighlighter = async (
  * @example
  * ```svelte
  * <script>
- *   import { highlightForSvelte } from '@mistweaverco/mdsvex-shiki';
+ *   import { highlightForSvelte } from '@dont-be-evil-company/mdsvex-shiki';
  *   let html = $state('');
  *   $effect(() => {
  *     void highlightForSvelte({ shikiOptions: { langs: ['typescript'] } }, 'const x = 1', 'ts').then(

@@ -2,9 +2,11 @@ import type { ElementContent, RootContent } from "hast";
 
 /**
  * Escape characters that break Svelte compilation when highlighted HTML is
- * embedded in a `.svelte` / `.svx` file. Matches mdsvex `escapeSvelte` so
- * output is safe both as raw markup and inside `{@html \`...\`}` when
- * `highlight.optimise` is true.
+ * embedded in a `.svelte` / `.svx` file. Safe as raw markup and inside
+ * `{@html \`...\`}` when `highlight.optimise` is true.
+ *
+ * Every backslash becomes `&#92;`. A template literal would otherwise treat
+ * `\` as an escape (`\n`, `\"`, `\ `) or as a line continuation and drop it.
  */
 export function escapeSvelte(str: string): string {
   return str
@@ -16,7 +18,7 @@ export function escapeSvelte(str: string): string {
       };
       return map[c] ?? c;
     })
-    .replace(/\\([trn])/g, "&#92;$1");
+    .replace(/\\/g, "&#92;");
 }
 
 // Helper function to extract text content from HAST nodes
