@@ -28,8 +28,6 @@ jobs:
         uses: voidzero-dev/setup-vp@3754dd7dbdb32bd8f6d28b6043de13ad3a75f21f
         with:
           node-version-file: ".node-version"
-      - name: Build library
-        run: vpr build
       - name: Set up Node.js
         # v6.4.0
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
