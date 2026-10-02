@@ -28,19 +28,21 @@ jobs:
         uses: voidzero-dev/setup-vp@3754dd7dbdb32bd8f6d28b6043de13ad3a75f21f
         with:
           node-version-file: ".node-version"
-      - name: Build Website
+      - name: Install dependencies
+        run: vp install
+      - name: Build library
         run: vpr build
-      - name: Setup Pages
-        # v6.0.0
-        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d
-      - name: Upload artifact
-        # v5.0.0
-        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9
+      - name: Set up Node.js
+        # v6.4.0
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e
         with:
-          path: "build"
-      - name: Deploy to GitHub Pages
-        id: deployment
-        # v5.0.0
-        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128
+          node-version-file: .node-version
+          cache: pnpm
+          registry-url: 'https://registry.npmjs.org'
+      - name: Publish
+        run: npm publish --access public
+      - name: Make release
+        run: |
+          gh release create v$VERSION -t "v$VERSION" --generate-notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
