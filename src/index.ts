@@ -32,17 +32,12 @@ export type HighlighterOptions = {
   displayLang?: boolean;
   disableCopyButton?: boolean;
   shikiOptions?: Partial<CodeToHastOptions<BundledLanguage, BundledTheme>> & {
-    themes?:
-      | BundledTheme[]
-      | { light: BundledTheme; dark: BundledTheme }
-      | BundledTheme;
+    themes?: BundledTheme[] | { light: BundledTheme; dark: BundledTheme } | BundledTheme;
     langs?: BundledLanguage[] | "all";
   };
 };
 
-export const defaultShikiOptions: Partial<
-  CodeToHastOptions<BundledLanguage, BundledTheme>
-> = {
+export const defaultShikiOptions: Partial<CodeToHastOptions<BundledLanguage, BundledTheme>> = {
   cssVariablePrefix: "--shiki-",
   transformers: [
     transformerMetaHighlight(),
@@ -63,10 +58,7 @@ let highlighterInstance: Highlighter | null = null;
 let highlighterPromise: Promise<Highlighter> | null = null;
 
 const getHighlighterInstance = async (
-  themes:
-    | BundledTheme[]
-    | { light: BundledTheme; dark: BundledTheme }
-    | BundledTheme,
+  themes: BundledTheme[] | { light: BundledTheme; dark: BundledTheme } | BundledTheme,
   langs: BundledLanguage[] | "all" = "all",
 ): Promise<Highlighter> => {
   if (highlighterInstance) {
@@ -78,18 +70,12 @@ const getHighlighterInstance = async (
   }
 
   const langsArray: BundledLanguage[] =
-    langs === "all"
-      ? (Object.keys(bundledLanguages) as BundledLanguage[])
-      : langs;
+    langs === "all" ? (Object.keys(bundledLanguages) as BundledLanguage[]) : langs;
 
   let themesArray: BundledTheme[];
   if (Array.isArray(themes)) {
     themesArray = themes;
-  } else if (
-    typeof themes === "object" &&
-    "light" in themes &&
-    "dark" in themes
-  ) {
+  } else if (typeof themes === "object" && "light" in themes && "dark" in themes) {
     themesArray = [themes.light, themes.dark];
   } else {
     themesArray = [themes];
@@ -112,9 +98,7 @@ export const getMdsvexShikiHighlighter = async (
   const themes = config.shikiOptions?.themes || defaultThemes;
   const langs = config.shikiOptions?.langs || "all";
 
-  const shikiOptions: Partial<
-    CodeToHastOptions<BundledLanguage, BundledTheme>
-  > = {
+  const shikiOptions: Partial<CodeToHastOptions<BundledLanguage, BundledTheme>> = {
     ...defaultShikiOptions,
     ...config.shikiOptions,
   };
@@ -147,10 +131,7 @@ export const getMdsvexShikiHighlighter = async (
       ...shikiOptions,
       lang,
       transformers,
-      themes:
-        typeof themes === "object" && !Array.isArray(themes)
-          ? themes
-          : undefined,
+      themes: typeof themes === "object" && !Array.isArray(themes) ? themes : undefined,
     } as CodeToHastOptions<BundledLanguage, BundledTheme>);
 
     const escaped = escapeSvelte(html);

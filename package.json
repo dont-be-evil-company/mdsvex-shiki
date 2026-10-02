@@ -1,6 +1,25 @@
 {
   "name": "@dont-be-evil-company/mdsvex-shiki",
   "version": "1.5.0",
+  "private": false,
+  "description": "Shiki syntax highlighter for mdsvex",
+  "keywords": [
+    "code",
+    "hightlight",
+    "hightlights",
+    "mdsvex",
+    "prismjs",
+    "shiki",
+    "svelte",
+    "sveltekit",
+    "syntax"
+  ],
+  "license": "MIT",
+  "author": "The Don't Be Evil Company and friends <osse@the-dont-be-evil-company.com>",
+  "files": [
+    "dist/*.{js,cjs,d.ts,css}",
+    "styles.css"
+  ],
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -18,45 +37,22 @@
     },
     "./styles.css": "./styles.css"
   },
-  "files": [
-    "dist/*.{js,cjs,d.ts,css}",
-    "styles.css"
-  ],
   "scripts": {
-    "test": "bun test",
-    "prepublishOnly": "bun run build",
+    "test": "vp test",
+    "prepublishOnly": "npm run build",
     "clear": "rm -f *.js *.cjs *.d.ts",
-    "build": "bun build.ts",
+    "build": "node build.mjs",
     "publish:npm": "npm publish --access public",
     "publish:github": "npm publish --registry https://npm.pkg.github.com --access public"
   },
-  "keywords": [
-    "code",
-    "hightlight",
-    "hightlights",
-    "mdsvex",
-    "prismjs",
-    "shiki",
-    "svelte",
-    "sveltekit",
-    "syntax"
-  ],
-  "author": "The Don't Be Evil Company and friends <osse@the-dont-be-evil-company.com>",
-  "license": "MIT",
-  "description": "Shiki syntax highlighter for mdsvex",
-  "private": false,
-  "packageManager": "bun@1.3.3",
   "devDependencies": {
-    "@eslint/json": "0.14.0",
-    "@eslint/markdown": "7.5.1",
     "@shikijs/transformers": "3.19.0",
-    "@types/bun": "1.3.3",
-    "bun-plugin-dts": "0.3.0",
     "eslint": "9.39.1",
     "prettier": "3.7.4",
     "shiki": "3.19.0",
     "svelte": "5.45.10",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.49.0"
-  }
+    "vite-plus": "1.0.0"
+  },
+  "packageManager": "pnpm@12.8.1"
 }

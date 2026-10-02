@@ -1,4 +1,4 @@
-import { expect, test } from "bun:test";
+import { expect, test } from "vite-plus/test";
 import { getMdsvexShikiHighlighter } from "./index";
 import { escapeSvelte } from "./utils";
 
@@ -15,21 +15,11 @@ const sample = [
 ].join("\n");
 
 test("escapeSvelte escapes every backslash", () => {
-  const input = ["{", "}", bt, "\\", "\\t", "\\n", "\\r", "\\u", "\\x"].join(
-    " ",
-  );
+  const input = ["{", "}", bt, "\\", "\\t", "\\n", "\\r", "\\u", "\\x"].join(" ");
   expect(escapeSvelte(input)).toBe(
-    [
-      "&#123;",
-      "&#125;",
-      "&#96;",
-      "&#92;",
-      "&#92;t",
-      "&#92;n",
-      "&#92;r",
-      "&#92;u",
-      "&#92;x",
-    ].join(" "),
+    ["&#123;", "&#125;", "&#96;", "&#92;", "&#92;t", "&#92;n", "&#92;r", "&#92;u", "&#92;x"].join(
+      " ",
+    ),
   );
 });
 

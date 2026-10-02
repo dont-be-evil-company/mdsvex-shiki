@@ -11,26 +11,25 @@ so we created this package to fill the gap.
 
 <img width="794" height="558" alt="Screenshot" src="https://github.com/user-attachments/assets/38250632-432a-4f2a-8722-0ef1e4108f38" />
 
-
 ## Installation
 
 Using your package manager of choice, run:
 
 ```bash
 # npm
-npm install @dont-be-evil-company/mdsvex-shiki@v1.4.0
+npm install @dont-be-evil-company/mdsvex-shiki@v1.5.0
 
 # yarn
-yarn add @dont-be-evil-company/mdsvex-shiki@v1.4.0
+yarn add @dont-be-evil-company/mdsvex-shiki@v1.5.0
 
 # bun
-bun add @dont-be-evil-company/mdsvex-shiki@v1.4.0
+bun add @dont-be-evil-company/mdsvex-shiki@v1.5.0
 
 # pnpm
-pnpm add @dont-be-evil-company/mdsvex-shiki@v1.4.0
+pnpm add @dont-be-evil-company/mdsvex-shiki@v1.5.0
 
 # deno
-deno add npm:@dont-be-evil-company/mdsvex-shiki@v1.4.0
+deno add npm:@dont-be-evil-company/mdsvex-shiki@v1.5.0
 ```
 
 > [!WARNING]
@@ -68,9 +67,9 @@ const options = {
   displayPath: true,
   displayLang: true,
   shikiOptions: {
-    theme: 'nord',
-  }
-}
+    theme: "nord",
+  },
+};
 ```
 
 ### Import styles
@@ -86,7 +85,7 @@ Probably in the root layout or HTML file that wraps your markdown content.
 (e.g., `src/routes/blog/+layout.svelte` or `src/app.html`)
 
 ```js
-import '@dont-be-evil-company/mdsvex-shiki/styles.css';
+import "@dont-be-evil-company/mdsvex-shiki/styles.css";
 ```
 
 Now, you can use the bar features in your code blocks.
@@ -156,7 +155,7 @@ and copy button works the same way as in the sections above.
 In `svelte.config.js`:
 
 ```js
-import { getMdsvexShikiHighlighter } from 'mdsvex-shiki'
+import { getMdsvexShikiHighlighter } from "mdsvex-shiki";
 
 const config = {
   // ...
@@ -172,16 +171,14 @@ const config = {
             // Shiki options
             // every option supported by Shiki's `codeToHtml` function
             // with defaults for `theme` and `formatters`
-            theme: 'nord',
+            theme: "nord",
             wrap: true,
           },
-        })
-      }
+        }),
+      },
     }),
   ],
-}
+};
 ```
-
-
 
 [shiki-transformers]: https://shiki.style/packages/transformers

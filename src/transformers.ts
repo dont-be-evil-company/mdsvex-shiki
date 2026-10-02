@@ -15,26 +15,20 @@ export const mdsvexWrapItUpTransformer = (
   meta: string | undefined,
   options: MdsvexWrapItUpOptions = {},
 ): ShikiTransformer => {
-  const {
-    disableCopyButton = false,
-    displayPath = true,
-    displayLang = true,
-  } = options;
+  const { disableCopyButton = false, displayPath = true, displayLang = true } = options;
   return {
     name: "transformerMdsvexWrapItUp",
     enforce: "post",
     root: function (root: Root) {
       const len = root.children.length;
-      const children: RootContent[] =
-        len > 0 ? (root.children as RootContent[]) : [];
+      const children: RootContent[] = len > 0 ? (root.children as RootContent[]) : [];
 
       let textToCopy = codeText;
       if (!textToCopy) {
         children.forEach((child) => {
           if (child.type === "element" && child.tagName === "pre") {
             const codeElement = child.children.find(
-              (c): c is ElementContent =>
-                c.type === "element" && c.tagName === "code",
+              (c): c is ElementContent => c.type === "element" && c.tagName === "code",
             );
             if (codeElement && codeElement.type === "element") {
               textToCopy = extractText(codeElement);
@@ -263,11 +257,7 @@ export const mdsvexWrapItUpTransformer = (
       const wrapperElement = wrapper.children[0];
       if (wrapperElement && wrapperElement.type === "element") {
         children.forEach((child) => {
-          if (
-            child.type === "element" &&
-            child.tagName === "pre" &&
-            child.properties.class
-          ) {
+          if (child.type === "element" && child.tagName === "pre" && child.properties.class) {
             const preClassNames = child.properties.class as string;
             if (preClassNames) {
               this.addClassToHast(wrapperElement, preClassNames);

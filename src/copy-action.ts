@@ -31,9 +31,7 @@ export const copyAction: Action<HTMLElement> = (node) => {
             console.error("Failed to copy code:", err);
           });
       } else {
-        const codeBlock = button
-          .closest(".mdsvex-shiki")
-          ?.querySelector("code");
+        const codeBlock = button.closest(".mdsvex-shiki")?.querySelector("code");
         if (codeBlock) {
           navigator.clipboard
             .writeText(codeBlock.textContent || "")
