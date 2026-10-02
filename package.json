@@ -15,6 +15,10 @@
     "syntax"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dont-be-evil-company/mdsvex-shiki.git"
+  },
   "author": "The Don't Be Evil Company and friends <osse@the-dont-be-evil-company.com>",
   "files": [
     "dist/*.{js,cjs,d.ts,css}",
